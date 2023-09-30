@@ -20,17 +20,17 @@ export default function Pokemon() {
   const [params, setParams]= useState({limit: 151 , page: 1})
 
 
-const {data: pokemon, isLoading: cargandoPokes, isSuccess, isError }  = useBuscarInfoQuery(params); 
+  const {data: pokemon, isLoading: cargandoPokes, isSuccess, isError }  = useBuscarInfoQuery(params); 
 
 
 
- useEffect(()=>{
-  isSuccess&&setPokemones(pokemon)
-},[isSuccess]);
+  useEffect(()=>{
+    isSuccess&&setPokemones(pokemon)  
+  },[isSuccess]);
 
-useEffect(()=>{
-  isError&&console.log("error");
-},[isError])
+  useEffect(()=>{
+    isError&&console.log("error");
+  },[isError])
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -129,7 +129,7 @@ useEffect(()=>{
                     variant="outlined"
                     onClick={() => returnPokemon(item)}
                   >
-                   de vuelta
+                    de vuelta
                   </Button>
                 </ListItem>
                 <Divider></Divider>

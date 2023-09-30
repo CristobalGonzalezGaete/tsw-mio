@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Pokemon from "./Components/Pokemon";
 import PokeDetalle from "./Components/PokeDetalle";
+import miImagen from "../img/Background.jpg";
 
 
 export default function Home(){
@@ -15,23 +16,35 @@ export default function Home(){
   };
     return(
         <>
-       <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-        </Tabs>
-      </Box>
-      <CustomTabPanel value={value} index={0}>
-        <Pokemon></Pokemon>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-      <PokeDetalle></PokeDetalle>   
-    </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-      </CustomTabPanel>
-    </Box>
+        <Box sx={{ 
+          backgroundImage: `url(${miImagen})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          padding: '100px',
+        }}>
+          <Box sx={{ backgroundColor: 'white', width: '100%' }}>
+            <Box sx={{ 
+              borderBottom: 1, 
+              borderColor: 'divider',
+            }}>
+              <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                <Tab label="Item One" {...a11yProps(0)} />
+                <Tab label="Item Two" {...a11yProps(1)} />
+                <Tab label="Item Three" {...a11yProps(2)} />
+              </Tabs>
+            </Box>
+            <CustomTabPanel value={value} index={0}>
+              <Pokemon></Pokemon>
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={1}>
+              <PokeDetalle></PokeDetalle>   
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={2}>
+            </CustomTabPanel>
+          </Box>
+        </Box>
 
 
         </>
